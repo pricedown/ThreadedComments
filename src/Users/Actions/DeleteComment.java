@@ -1,10 +1,15 @@
 package Users.Actions;
 
 import CommentThreads.Comment;
+import CommentThreads.Post;
 
 import java.util.Date;
 
 public class DeleteComment extends UserAction {
+
+    public DeleteComment(Post post, int index) {
+        super(new Date(), post, index);
+    }
 
     public DeleteComment(Comment comment) {
         super(new Date(), comment);

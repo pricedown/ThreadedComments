@@ -14,6 +14,9 @@ public class Comment {
     boolean edited = false;
     Date editedDate;
 
+    public Post originalPost;
+    public int index;
+
     public Comment parent;
     public ArrayList<Comment> children = new ArrayList<Comment>();
     int indentation = 0;
@@ -51,10 +54,14 @@ public class Comment {
     public void AddComment(Comment comment){
         comment.parent = this;
         comment.indentation = this.indentation + 1;
+        comment.originalPost = this.originalPost;
 
         children.add(comment);
         NotifySubscribers(comment);
         subscribers.add(comment.author);
+
+        originalPost.comments.add(comment);
+        index = originalPost.comments.size() - 1;
 
         // TODO
         // Should notify all subscribers in children as well
@@ -73,7 +80,7 @@ public class Comment {
     public String toString() {
         String output = "";
 
-        output += AddIndentation() + author.getName() + "\n";
+        output += AddIndentation() + "[ " + index + " ]" + author.getName() + "\n";
         output += AddIndentation() + "Posted: " + getTimeDiffToday(date) + " ";
         output += edited ? AddIndentation() + "Edited: " + getTimeDiffToday(editedDate) + "\n" : "\n";
         output += AddIndentation() + text + "\n";

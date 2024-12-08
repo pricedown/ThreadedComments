@@ -1,11 +1,17 @@
 package Users.Actions;
 
 import CommentThreads.Comment;
+import CommentThreads.Post;
 
 import java.util.Date;
 
 public class EditComment extends UserAction {
     private String newText;
+
+    public EditComment(Post post, int index, String newText) {
+        super(new Date(), post, index);
+        this.newText = newText;
+    }
 
     public EditComment(String newText, Comment comment) {
         super(new Date(), comment);
