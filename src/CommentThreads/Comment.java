@@ -63,8 +63,8 @@ public class Comment {
     public String toString() {
         String output = "";
 
-        output += AddIndentation() + author.getName() + "\t Posted: " + date + "\n";
-        if (edited) output += AddIndentation() + "Edited: " + editedDate + "\n";
+        output += AddIndentation() + author.getName() + "\nPosted: " + getTimeDiffToday(date) + "\n";
+        if (edited) output += AddIndentation() + "Edited: " + getTimeDiffToday(editedDate) + "\n";
         output += AddIndentation() + text + "\n";
 
         return output;
@@ -90,8 +90,12 @@ public class Comment {
     }
 
     // time ago
-    public static String getRelevantTimeDiff(Date date1, Date date2) {
-        Map<TimeUnit,Long> time = computeDiff(date1, date2);
+    public static String getTimeDiffToday(Date date) {
+        return getTimeDiff(new Date(), date);
+    }
+
+    public static String getTimeDiff(Date date1, Date date2) {
+        Map<TimeUnit,Long> time = computeTimeDiff(date1, date2);
         String output = " just now";
 
         if (time.get(TimeUnit.DAYS) > 0) {
@@ -122,7 +126,7 @@ public class Comment {
     }
 
     // From: https://ideone.com/5dXeu6
-    public static Map<TimeUnit,Long> computeDiff(Date date1, Date date2) {
+    public static Map<TimeUnit,Long> computeTimeDiff(Date date1, Date date2) {
         long diffInMillies = date2.getTime() - date1.getTime();
         List<TimeUnit> units = new ArrayList<TimeUnit>(EnumSet.allOf(TimeUnit.class));
         Collections.reverse(units);
