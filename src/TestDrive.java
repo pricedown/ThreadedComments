@@ -37,6 +37,9 @@ public class TestDrive {
         joseph.DoAction(new PostComment(post, 1, "Index ? 3"));
         System.out.println(post.display());
 
+        Post post2 = new Post(murat, "New Post. Index ? 0");
+        joshua.DoAction(new PostComment(post2, 0, "First comment. index ? 1"));
+        System.out.println(post2.display());
 
 
         // Information about dates:

@@ -4,11 +4,10 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="ACXyOTVwt8eLpyd3R-gj-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.999;exitY=0.479;exitDx=0;exitDy=0;startArrow=diamondThin;startFill=0;startSize=20;exitPerimeter=0;" parent="1" source="ACXyOTVwt8eLpyd3R-gj-7" target="IfjuIOWjXW62O33DEMEJ-4" edge="1">
+        <mxCell id="ACXyOTVwt8eLpyd3R-gj-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=diamondThin;startFill=0;startSize=20;" parent="1" source="ACXyOTVwt8eLpyd3R-gj-7" target="IfjuIOWjXW62O33DEMEJ-4" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="920" y="371" />
-              <mxPoint x="920" y="60" />
+              <mxPoint x="970" y="60" />
               <mxPoint x="120" y="60" />
             </Array>
             <mxPoint x="625" y="120" as="sourcePoint" />
@@ -16,7 +15,7 @@
         </mxCell>
         <mxCell id="ACXyOTVwt8eLpyd3R-gj-5" value="0..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="ACXyOTVwt8eLpyd3R-gj-3" vertex="1" connectable="0">
           <mxGeometry x="-0.8884" y="4" relative="1" as="geometry">
-            <mxPoint x="-40" y="3" as="offset" />
+            <mxPoint x="-16" y="10" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="ACXyOTVwt8eLpyd3R-gj-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="IfjuIOWjXW62O33DEMEJ-4" target="sb-2HTpANfwCJl85uCGh-10" edge="1">
@@ -46,8 +45,11 @@
         <mxCell id="IfjuIOWjXW62O33DEMEJ-18" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;&lt;i&gt;Edit Comment&lt;/i&gt;&lt;/b&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ newContent: String&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" parent="1" vertex="1">
           <mxGeometry x="340" y="460" width="140" height="50" as="geometry" />
         </mxCell>
+        <mxCell id="LP4MEjaqBTGkGhnqhpCd-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="IfjuIOWjXW62O33DEMEJ-19" target="ACXyOTVwt8eLpyd3R-gj-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="IfjuIOWjXW62O33DEMEJ-19" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Post&lt;/b&gt;&lt;/p&gt;&lt;hr style=&quot;border-style:solid;&quot; size=&quot;1&quot;&gt;+ Map&amp;lt;UID, Comment&amp;gt;&lt;br&gt;&lt;div&gt;or&lt;/div&gt;&lt;div&gt;+ List&amp;lt;Comment&amp;gt;&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="960" y="500" width="160" height="80" as="geometry" />
+          <mxGeometry x="575" y="290" width="160" height="80" as="geometry" />
         </mxCell>
         <mxCell id="sb-2HTpANfwCJl85uCGh-10" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;Role&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ validateAction&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;(User Action):&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;bool&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" parent="1" vertex="1">
           <mxGeometry x="-265" y="95" width="190" height="100" as="geometry" />
@@ -79,27 +81,26 @@
         <mxCell id="ACXyOTVwt8eLpyd3R-gj-4" value="OBSERVERS" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="345" y="30" width="100" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="ZDMqE9hYmMKR4qr3V81I-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="ACXyOTVwt8eLpyd3R-gj-7" target="ACXyOTVwt8eLpyd3R-gj-10" edge="1">
+        <mxCell id="ZDMqE9hYmMKR4qr3V81I-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="ACXyOTVwt8eLpyd3R-gj-7" target="ACXyOTVwt8eLpyd3R-gj-10" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="ACXyOTVwt8eLpyd3R-gj-7" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Text Reply&lt;/b&gt;&lt;/p&gt;&lt;hr style=&quot;border-style:solid;&quot; size=&quot;1&quot;&gt;&lt;div style=&quot;height:2px;&quot;&gt;&lt;/div&gt;&lt;div&gt;+ author: User&lt;br&gt;&lt;/div&gt;&lt;div&gt;+ subscribers: List&amp;lt;Users&amp;gt;&lt;/div&gt;&lt;div&gt;+ text: String&lt;br&gt;+ replies: List&amp;lt;Comment&amp;gt;&lt;/div&gt;&lt;hr style=&quot;border-style:solid;&quot; size=&quot;1&quot;&gt;&lt;div style=&quot;height:2px;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;height:2px;&quot;&gt;+ notifySubscribers(): void&lt;br&gt;+ addComment(Comment): void&lt;br&gt;+ deleteComment(): void&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="650" y="290" width="160" height="170" as="geometry" />
+        <mxCell id="ACXyOTVwt8eLpyd3R-gj-7" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Reply&lt;/b&gt;&lt;/p&gt;&lt;hr style=&quot;border-style:solid;&quot; size=&quot;1&quot;&gt;&lt;div style=&quot;height:2px;&quot;&gt;&lt;/div&gt;&lt;div&gt;+ author: User&lt;br&gt;&lt;/div&gt;&lt;div&gt;+ subscribers: List&amp;lt;Users&amp;gt;&lt;/div&gt;&lt;div&gt;+ text: String&lt;br&gt;+ replies: List&amp;lt;Comment&amp;gt;&lt;/div&gt;&lt;hr style=&quot;border-style:solid;&quot; size=&quot;1&quot;&gt;&lt;div style=&quot;height:2px;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;height:2px;&quot;&gt;+ notifySubscribers(): void&lt;br&gt;+ addComment(Comment): void&lt;br&gt;+ deleteComment(): void&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="750" y="290" width="160" height="170" as="geometry" />
         </mxCell>
-        <mxCell id="ACXyOTVwt8eLpyd3R-gj-10" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;br&gt;Comment&lt;/b&gt;&lt;/p&gt;&lt;hr style=&quot;border-style:solid;&quot; size=&quot;1&quot;&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;+ parent: Comment&lt;/span&gt;&lt;/div&gt;&lt;div&gt;+ uid: String&lt;br&gt;&lt;/div&gt;&lt;div&gt;+ date: Date&lt;br&gt;&lt;/div&gt;&lt;hr style=&quot;border-style: solid;&quot; size=&quot;1&quot;&gt;&lt;div style=&quot;height: 2px;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;height: 2px;&quot;&gt;+ display(): String&lt;br&gt;&lt;br&gt;&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" parent="1" vertex="1">
+        <mxCell id="ACXyOTVwt8eLpyd3R-gj-10" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;br&gt;Comment&lt;/b&gt;&lt;/p&gt;&lt;hr style=&quot;border-style:solid;&quot; size=&quot;1&quot;&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;+ parent: Comment&lt;/span&gt;&lt;/div&gt;&lt;div&gt;+ uid: String&lt;br&gt;&lt;/div&gt;&lt;div&gt;+ date: Date&lt;br&gt;&lt;/div&gt;&lt;hr style=&quot;border-style: solid;&quot; size=&quot;1&quot;&gt;&lt;div style=&quot;height: 2px;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;height: 2px;&quot;&gt;+ display(): String&lt;br&gt;&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" parent="1" vertex="1">
           <mxGeometry x="575" y="120" width="160" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="ACXyOTVwt8eLpyd3R-gj-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=diamondThin;startFill=0;startSize=20;" parent="1" source="ACXyOTVwt8eLpyd3R-gj-7" target="ACXyOTVwt8eLpyd3R-gj-10" edge="1">
+        <mxCell id="ACXyOTVwt8eLpyd3R-gj-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=diamondThin;startFill=0;startSize=20;exitX=0.75;exitY=0;exitDx=0;exitDy=0;" parent="1" source="ACXyOTVwt8eLpyd3R-gj-7" target="ACXyOTVwt8eLpyd3R-gj-10" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="860" y="300" />
-              <mxPoint x="860" y="205" />
+              <mxPoint x="870" y="205" />
             </Array>
             <mxPoint x="930" y="400" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="ACXyOTVwt8eLpyd3R-gj-12" value="0..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="ACXyOTVwt8eLpyd3R-gj-11" vertex="1" connectable="0">
           <mxGeometry x="0.774" y="1" relative="1" as="geometry">
-            <mxPoint x="74" y="94" as="offset" />
+            <mxPoint x="110" y="54" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="ACXyOTVwt8eLpyd3R-gj-13" value="COMMENT THREADS" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
@@ -108,11 +109,11 @@
         <mxCell id="ACXyOTVwt8eLpyd3R-gj-15" value="peep this one: alternative comment structure that is more in line with the composite pattern&lt;br&gt;it would also mean changing how comments are deleted" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="-430" y="650" width="500" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="ZDMqE9hYmMKR4qr3V81I-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="ZDMqE9hYmMKR4qr3V81I-6" target="ACXyOTVwt8eLpyd3R-gj-10" edge="1">
+        <mxCell id="ZDMqE9hYmMKR4qr3V81I-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="ZDMqE9hYmMKR4qr3V81I-6" target="ACXyOTVwt8eLpyd3R-gj-10" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="ZDMqE9hYmMKR4qr3V81I-6" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Deleted Comment&lt;/b&gt;&lt;/p&gt;&lt;hr style=&quot;border-style:solid;&quot; size=&quot;1&quot;&gt;&lt;div style=&quot;height:2px;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;height:2px;&quot;&gt;+ dateDeleted: Date&lt;br&gt;+ deletedBy: User&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="490" y="290" width="120" height="60" as="geometry" />
+          <mxGeometry x="440" y="290" width="120" height="70" as="geometry" />
         </mxCell>
         <mxCell id="ZDMqE9hYmMKR4qr3V81I-9" value="we can use strategy with notifications as well by calling functions&lt;br&gt;from a notification handler object. this means we can have different notif types like email or text" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="140" width="530" height="40" as="geometry" />

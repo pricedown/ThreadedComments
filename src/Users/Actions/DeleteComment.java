@@ -9,6 +9,12 @@ public class DeleteComment extends UserAction {
 
     public DeleteComment(Post post, int index) {
         super(new Date(), post, index);
+        actionType = UserActionType.Delete;
+    }
+
+    public DeleteComment(Post post, int index, Date date) {
+        super(date, post, index);
+        actionType = UserActionType.Delete;
     }
 
     public DeleteComment(Comment comment) {

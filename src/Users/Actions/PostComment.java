@@ -15,6 +15,13 @@ public class PostComment extends UserAction {
         this.text = text;
     }
 
+    public PostComment(Post post, int index, String text, Date date) {
+        super(date, post, index);
+        actionType = UserActionType.Post;
+
+        this.text = text;
+    }
+
     public PostComment(String text, Comment replyTo) {
         super(new Date(), replyTo);
         actionType = UserActionType.Post;

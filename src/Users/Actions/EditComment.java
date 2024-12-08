@@ -10,6 +10,15 @@ public class EditComment extends UserAction {
 
     public EditComment(Post post, int index, String newText) {
         super(new Date(), post, index);
+        actionType = UserActionType.Edit;
+
+        this.newText = newText;
+    }
+
+    public EditComment(Post post, int index, String newText, Date date) {
+        super(date, post, index);
+        actionType = UserActionType.Edit;
+
         this.newText = newText;
     }
 
