@@ -16,6 +16,7 @@ public class Post extends Comment{
         super(user, text);
         originalPost = this;
         comments.add(this);
+        index = 0;
     }
 
     public Comment getComment(int index) {

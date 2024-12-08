@@ -61,7 +61,7 @@ public class Comment {
         subscribers.add(comment.author);
 
         originalPost.comments.add(comment);
-        index = originalPost.comments.size() - 1;
+        comment.index = originalPost.comments.size() - 1;
 
         // TODO
         // Should notify all subscribers in children as well

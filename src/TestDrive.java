@@ -31,10 +31,10 @@ public class TestDrive {
         System.out.println(users + "\n");
 
 
-        Post post = new Post(joshua, "Otters are awesome");
-        joshua.DoAction(new PostComment(post, 0, "Awesome"));
-        murat.DoAction(new PostComment(post, 0, "Awesome 1"));
-        joseph.DoAction(new PostComment(post, 1, "Awesome 1"));
+        Post post = new Post(joshua, "The Post. Index should be 0");
+        joshua.DoAction(new PostComment(post, 0, "First comment; index? 1"));
+        murat.DoAction(new PostComment(post, 0, "Index ? 2"));
+        joseph.DoAction(new PostComment(post, 1, "Index ? 3"));
         System.out.println(post.display());
 
 
