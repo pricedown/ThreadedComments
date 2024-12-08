@@ -3,11 +3,22 @@ package Users.Actions;
 import CommentThreads.Comment;
 import Users.User;
 
-public class DeleteComment implements  Action{
-    private User user;
-    private Comment comment;
+import java.util.Date;
+
+public class DeleteComment extends UserAction {
+
+    public DeleteComment(Comment comment) {
+        super(new Date(), comment);
+        actionType = UserActionType.Delete;
+    }
+
+    public DeleteComment(Comment comment, Date date) {
+        super(date, comment);
+        actionType = UserActionType.Delete;
+    }
 
     public void execute() {
 
     }
+
 }

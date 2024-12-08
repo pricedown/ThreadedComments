@@ -1,30 +1,56 @@
 import CommentThreads.Comment;
 import Users.*;
+import Users.Actions.PostComment;
+import Users.Roles.Commenter;
+import Users.Roles.General;
+import Users.Roles.OriginalPoster;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 public class TestDrive {
     public static void main(String[] args) {
-        System.out.println("[Threaded Comments Test]");
+        System.out.println("[Threaded Comments Test]\n");
 
-        User joshua = new User("Joshua");
-        User joseph = new User("Joseph");
+        // Setup
+        ArrayList<User> users = new ArrayList<User>();
+        User joshua = new User("Joshua", new OriginalPoster());
+        User joseph = new User("Joseph", new Commenter());
+        User murat = new User("Murat", new Commenter());
+        users.add(joshua);
+        users.add(joseph);
+        users.add(murat);
 
-        Comment base = new Comment(joshua, new Date(2024, 12, 1), "This is a base comment");
+        // Information about dates:
+        // Year needs to have -1900
+        // Months start at 0
 
-        base.AddComment(new Comment(joseph, new Date(2022, 2, 1),"Comment 2"));
-        base.AddComment(new Comment(joshua, new Date(2022, 2, 1), "Comment 3"));
+        Comment base = new Comment(joshua, new Date(2024-1900, 0, 1), "Otters are objectively the best animal");
 
-        base.children.get(0).AddComment(new Comment(joshua, new Date(2022, 3, 1),"Comment 2-1"));
-        base.children.get(0).AddComment(new Comment(joseph, new Date(2022, 3, 1),"Comment 2-2"));
+        joshua.DoAction(new PostComment("Comment 1", base));
+        joseph.DoAction(new PostComment("Comment 2", base));
+
+        joshua.DoAction(new PostComment("Comment 1-1", base.children.get(0)));
+        joseph.DoAction(new PostComment("Comment 1-2", base.children.get(0)));
+        joshua.DoAction(new PostComment("Comment 2-1", base.children.get(1)));
 
         //Comment.getDateDiff(new Date(2022, 3, 1), new Date(), TimeUnit.MINUTES);
 
-/*        System.out.println(new Date(2024 - 1901, 11, 6));
-        System.out.println(new Date());
-        System.out.println(Comment.getDateDiff(new Date(2024 - 1901, 11, 6), new Date(), TimeUnit.DAYS));*/
 
-        System.out.println(base.display());
+        System.out.println(new Date(2024 - 1901, 11, 6));
+        System.out.println(new Date());
+        System.out.println(Comment.computeDiff(new Date(2023 - 1900, 11, 6), new Date()));
+        System.out.println(Comment.getRelevantTimeDiff(new Date(2023 - 1900, 11, 6), new Date()));
+
+        //System.out.println(users + "\n");
+        //System.out.println(base.display());
+
+        // User Input if we want
+
+    }
+
+    public void OutputMenu() {
+
     }
 }

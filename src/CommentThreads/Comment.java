@@ -9,20 +9,36 @@ public class Comment {
     public User author;
     String UID;
     Date date;
-    int indentation = 0;
-
     public String text;
+
+    boolean edited = false;
+    Date editedDate;
 
     public Comment parent;
     public ArrayList<Comment> children = new ArrayList<Comment>();
+    int indentation = 0;
 
     ArrayList<User> subscribers = new ArrayList<User>();
+
+    public Comment(User user, String text){
+        this.author = user;
+        this.date = new Date();
+        this.text = text;
+    }
 
     public Comment(User user, Date date, String text){
         this.author = user;
         this.date = date;
         this.text = text;
     }
+
+    public void NotifySubscribers(Comment comment){
+        for (User u : subscribers){
+            u.ReceiveNotification(comment);
+        }
+    }
+
+    // Actions
 
     public void AddComment(Comment comment){
         comment.parent = this;
@@ -34,27 +50,21 @@ public class Comment {
         subscribers.add(comment.author);
     }
 
-    public void NotifySubscribers(Comment comment){
-        for (User u : subscribers){
-            u.Notify(comment);
-        }
+    public void EditComment(String newText, Date editedDate) {
+        text = newText;
+        this.edited = true;
+        this.editedDate = editedDate;
     }
+
+    // Display
 
     @Override
     public String toString() {
         String output = "";
 
-        output += AddIndentation() + author.toString() + "\t" + getDateDiff(new Date(), date, TimeUnit.DAYS) + " days ago" + "\n";
+        output += AddIndentation() + author.getName() + "\t Posted: " + date + "\n";
+        if (edited) output += AddIndentation() + "Edited: " + editedDate + "\n";
         output += AddIndentation() + text + "\n";
-
-        return output;
-    }
-
-    private String AddIndentation() {
-        String output = "";
-
-        for (int i = 0; i < indentation; i++)
-            output += "\t";
 
         return output;
     }
@@ -69,13 +79,48 @@ public class Comment {
         return output;
     }
 
-    // The functions below are both taken from websites
-    //https://stackoverflow.com/questions/1555262/calculating-the-difference-between-two-java-date-instances
-    public static long getDateDiff(Date date1, Date date2, TimeUnit timeUnit) {
-        long diffInMillies = date2.getTime() - date1.getTime();
-        return timeUnit.convert(diffInMillies,TimeUnit.MILLISECONDS);
+    private String AddIndentation() {
+        String output = "";
+
+        for (int i = 0; i < indentation; i++)
+            output += "\t";
+
+        return output;
     }
 
+    // time ago
+    public static String getRelevantTimeDiff(Date date1, Date date2) {
+        Map<TimeUnit,Long> time = computeDiff(date1, date2);
+        String output = " just now";
+
+        if (time.get(TimeUnit.DAYS) > 0) {
+            output = time.get(TimeUnit.DAYS).toString();
+            output += (time.get(TimeUnit.DAYS) == 1) ? " day ago" : " days ago";
+            return output;
+        }
+
+        if (time.get(TimeUnit.HOURS) > 0) {
+            output = time.get(TimeUnit.HOURS).toString();
+            output += (time.get(TimeUnit.HOURS) == 1) ? " hour ago" : " hours ago";
+            return output;
+        }
+
+        if (time.get(TimeUnit.MINUTES) > 0) {
+            output += time.get(TimeUnit.MINUTES).toString();
+            output += (time.get(TimeUnit.MINUTES) == 1) ? " minute ago" : " minutes ago";
+            return output;
+        }
+
+        if (time.get(TimeUnit.SECONDS) > 0) {
+            output += time.get(TimeUnit.SECONDS).toString();
+            output += (time.get(TimeUnit.SECONDS) == 1) ? " second ago" : " seconds ago";
+            return output;
+        }
+
+        return output;
+    }
+
+    // From: https://ideone.com/5dXeu6
     public static Map<TimeUnit,Long> computeDiff(Date date1, Date date2) {
         long diffInMillies = date2.getTime() - date1.getTime();
         List<TimeUnit> units = new ArrayList<TimeUnit>(EnumSet.allOf(TimeUnit.class));
