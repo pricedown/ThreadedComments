@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class User {
     String name;
     Role role;
-    ArrayList<UserAction> history = new ArrayList<UserAction>();
+    ArrayList<UserAction> history = new ArrayList<>();
 
     public User(String name, Role role) {
         this.name = name;
@@ -28,8 +28,11 @@ public class User {
     }
 
     public void ReceiveNotification(Comment comment){
+        System.out.println("[System to: " + name +"]" + " Comment from " + comment.author + " : " + comment.text);
+    }
 
-
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     public String getName() {

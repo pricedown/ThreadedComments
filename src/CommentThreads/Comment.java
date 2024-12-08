@@ -24,6 +24,7 @@ public class Comment {
         this.author = user;
         this.date = new Date();
         this.text = text;
+        subscribers.add(user);
     }
 
     public Comment(User user, Date date, String text){
@@ -31,10 +32,16 @@ public class Comment {
         this.date = date;
         this.text = text;
         this.UUID = java.util.UUID.randomUUID();
+        subscribers.add(user);
     }
 
-    public void NotifySubscribers(Comment comment){
-        for (User u : subscribers){
+    // TODO Actually give more notification information (ex: new comment vs edited comment)
+    public void NotifySubscribers(Comment comment) {
+        for (User u : subscribers) {
+            // TODO Maybe use an ID system.
+            if (u.getName().equals(comment.author.getName()))
+                continue;
+
             u.ReceiveNotification(comment);
         }
     }
@@ -46,9 +53,12 @@ public class Comment {
         comment.indentation = this.indentation + 1;
 
         children.add(comment);
-
         NotifySubscribers(comment);
         subscribers.add(comment.author);
+
+        // TODO
+        // Should notify all subscribers in children as well
+        // Maybe build a list of people to notify by going thru children, so no duplicated notifications
     }
 
     public void EditComment(String newText, Date editedDate) {
@@ -63,8 +73,9 @@ public class Comment {
     public String toString() {
         String output = "";
 
-        output += AddIndentation() + author.getName() + "\nPosted: " + getTimeDiffToday(date) + "\n";
-        if (edited) output += AddIndentation() + "Edited: " + getTimeDiffToday(editedDate) + "\n";
+        output += AddIndentation() + author.getName() + "\n";
+        output += AddIndentation() + "Posted: " + getTimeDiffToday(date) + " ";
+        output += edited ? AddIndentation() + "Edited: " + getTimeDiffToday(editedDate) + "\n" : "\n";
         output += AddIndentation() + text + "\n";
 
         return output;
@@ -91,7 +102,7 @@ public class Comment {
 
     // time ago
     public static String getTimeDiffToday(Date date) {
-        return getTimeDiff(new Date(), date);
+        return getTimeDiff(date, new Date());
     }
 
     public static String getTimeDiff(Date date1, Date date2) {

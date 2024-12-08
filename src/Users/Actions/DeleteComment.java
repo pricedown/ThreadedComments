@@ -1,7 +1,6 @@
 package Users.Actions;
 
 import CommentThreads.Comment;
-import Users.User;
 
 import java.util.Date;
 

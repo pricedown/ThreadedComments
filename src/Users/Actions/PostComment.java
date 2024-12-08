@@ -1,7 +1,6 @@
 package Users.Actions;
 
 import CommentThreads.Comment;
-import Users.User;
 
 import java.util.Date;
 
@@ -15,7 +14,7 @@ public class PostComment extends UserAction {
         this.text = text;
     }
 
-    // In case you want to manually override the date since java doesnt have default params apparently
+    // In case you want to manually override the date since java doesn't have default params apparently
     public PostComment(String text, Comment replyTo, Date date) {
         super(date, replyTo);
         actionType = UserActionType.Post;

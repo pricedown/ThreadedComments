@@ -6,6 +6,7 @@ public class General implements Role {
     public boolean ValidateAction(UserAction userAction) {
         switch (userAction.getType()){
             case Post -> {
+                userAction.getUser().setRole(new Commenter());
                 return true;
             }
             case Delete -> {

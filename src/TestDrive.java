@@ -18,11 +18,14 @@ public class TestDrive {
         // Setup
         ArrayList<User> users = new ArrayList<User>();
         User joshua = new User("Joshua", new OriginalPoster());
-        User joseph = new User("Joseph", new Commenter());
-        User murat = new User("Murat", new Commenter());
+        User joseph = new User("Joseph", new General());
+        User murat = new User("Murat", new General());
         users.add(joshua);
         users.add(joseph);
         users.add(murat);
+
+        System.out.println(users + "\n");
+
 
         // Information about dates:
         // Year needs to have -1900
@@ -30,14 +33,15 @@ public class TestDrive {
 
         Comment base = new Comment(joshua, new Date(2024-1900, Calendar.DECEMBER, 1), "Cats are objectively the best animal");
 
-        joshua.DoAction(new PostComment("Comment 1", base));
+        murat.DoAction(new PostComment("Comment 1", base));
         joseph.DoAction(new PostComment("Comment 2", base));
+        joshua.DoAction(new PostComment("Comment 3", base));
 
         joshua.DoAction(new PostComment("Comment 1-1", base.children.get(0)));
         joseph.DoAction(new PostComment("Comment 1-2", base.children.get(0)));
         joshua.DoAction(new PostComment("Comment 2-1", base.children.get(1)));
 
-        joshua.DoAction(new EditComment("Oters are objectively the best animal", base, new Date(2024-1900, Calendar.DECEMBER, 5)));
+        joshua.DoAction(new EditComment("Otters are objectively the best animal", base, new Date(2024-1900, Calendar.DECEMBER, 5)));
 
         //Comment.getDateDiff(new Date(2022, 3, 1), new Date(), TimeUnit.MINUTES);
 
@@ -47,8 +51,9 @@ public class TestDrive {
         System.out.println(Comment.computeDiff(new Date(2023 - 1900, 11, 6), new Date()));
         System.out.println(Comment.getRelevantTimeDiff(new Date(2023 - 1900, 11, 6), new Date()));*/
 
-        System.out.println(users + "\n");
         System.out.println(base.display());
+
+        System.out.println(users + "\n");
 
         // User Input if we want
 
