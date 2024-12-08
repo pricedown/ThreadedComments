@@ -46,16 +46,19 @@ public class TestDrive {
         //Comment.getDateDiff(new Date(2022, 3, 1), new Date(), TimeUnit.MINUTES);
 
 
-/*        System.out.println(new Date(2024 - 1901, 11, 6));
+        /*
+        System.out.println(new Date(2024 - 1901, 11, 6));
         System.out.println(new Date());
         System.out.println(Comment.computeDiff(new Date(2023 - 1900, 11, 6), new Date()));
-        System.out.println(Comment.getRelevantTimeDiff(new Date(2023 - 1900, 11, 6), new Date()));*/
+        System.out.println(Comment.getRelevantTimeDiff(new Date(2023 - 1900, 11, 6), new Date()));
+        */
+
 
         System.out.println(base.display());
 
         System.out.println(users + "\n");
 
-        // User Input if we want
+        // User Input: As a stretch goal
 
     }
 
