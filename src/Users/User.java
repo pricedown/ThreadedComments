@@ -11,9 +11,9 @@ public class User {
     }
 
     public void Notify(Comment comment){
-
-
     }
+
+    public abstract void
 
     @Override
     public String toString() {
