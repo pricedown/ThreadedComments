@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Comment {
     public User author;
-    String UID;
+    UUID UUID;
     Date date;
     public String text;
 
@@ -30,6 +30,7 @@ public class Comment {
         this.author = user;
         this.date = date;
         this.text = text;
+        this.UUID = java.util.UUID.randomUUID();
     }
 
     public void NotifySubscribers(Comment comment){
