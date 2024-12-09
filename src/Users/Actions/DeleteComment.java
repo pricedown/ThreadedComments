@@ -1,6 +1,5 @@
 package Users.Actions;
 
-import CommentThreads.Comment;
 import CommentThreads.Post;
 
 import java.util.Date;
@@ -12,23 +11,15 @@ public class DeleteComment extends UserAction {
         actionType = UserActionType.Delete;
     }
 
-    public DeleteComment(Post post, int index, Date date) {
-        super(date, post, index);
-        actionType = UserActionType.Delete;
-    }
 
-    public DeleteComment(Comment comment) {
-        super(new Date(), comment);
-        actionType = UserActionType.Delete;
-    }
+    public boolean execute() {
+        if (!user.role.isPermittedAction(this)) {
+            System.out.println("User cannot delete this comment");
+            return false;
+        }
+        comment.DeleteComment();
 
-    public DeleteComment(Comment comment, Date date) {
-        super(date, comment);
-        actionType = UserActionType.Delete;
-    }
-
-    public void execute() {
-
+        return true;
     }
 
 }

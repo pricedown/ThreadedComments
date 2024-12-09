@@ -34,8 +34,6 @@ public class TestDrive {
         joshua.DoAction(new PostComment(post2, 0, "First comment. index ? 1"));
         System.out.println(post2.display());
 
-
-
         // Information about dates:
         // Year needs to have -1900
         // Months start at 0

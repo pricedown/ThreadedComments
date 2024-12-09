@@ -23,14 +23,14 @@ public abstract class UserAction {
         this.comment = post.getComment(index);
     }
 
-    public UserAction(Date date, Comment comment) {
+    public UserAction(User user, Date date, Post post, int index/*, Comment comment*/) {
+        this.user = user;
         this.date = date;
         this.post = post;
-        this.comment = comment;
-        System.out.println("Decpreciated constructor! Use the one that takes in a post and index");
+        this.comment = post.getComment(index);
     }
 
-    public abstract void execute();
+    public abstract boolean execute();
 
     public User getUser() {return user;}
     public void setUser(User user) {this.user = user;}

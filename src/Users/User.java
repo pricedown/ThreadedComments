@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class User {
     String name;
-    Role role;
+    public Role role;
     ArrayList<UserAction> history = new ArrayList<>();
 
     public User(String name, Role role) {
@@ -16,16 +16,13 @@ public class User {
         this.role = role;
     }
 
-    // TODO: the post should perform actions, but the user could construct them
     public boolean DoAction(UserAction userAction) {
         userAction.setUser(this);
-
-        if (!role.validateAction(userAction))
-            return false;
-
-        history.add(userAction);
-        userAction.execute();
-        return true;
+        if (userAction.execute()) {
+            history.add(userAction);
+            return true;
+        }
+        return false;
     }
 
     public void ReceiveNotification(Comment comment){

@@ -83,6 +83,7 @@ public class Comment {
 
     public void DeleteComment() {
         text = "[deleted]";
+        author = null;
         this.isDeleted = true;
     }
 
@@ -90,6 +91,11 @@ public class Comment {
 
     @Override
     public String toString() {
+        if (isDeleted) {
+            String output = "[deleted comment]\n";
+            return output;
+        }
+
         String output = "";
 
         output += AddIndentation() + "[ " + index + " ] " + author.getName() + "\n";

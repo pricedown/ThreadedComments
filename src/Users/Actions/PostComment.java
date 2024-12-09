@@ -15,29 +15,14 @@ public class PostComment extends UserAction {
         this.text = text;
     }
 
-    public PostComment(Post post, int index, String text, Date date) {
-        super(date, post, index);
-        actionType = UserActionType.Post;
 
-        this.text = text;
-    }
-
-    public PostComment(String text, Comment replyTo) {
-        super(new Date(), replyTo);
-        actionType = UserActionType.Post;
-
-        this.text = text;
-    }
-
-    // In case you want to manually override the date since java doesn't have default params apparently
-    public PostComment(String text, Comment replyTo, Date date) {
-        super(date, replyTo);
-        actionType = UserActionType.Post;
-
-        this.text = text;
-    }
-
-    public void execute() {
+    public boolean execute() {
+        if (!user.role.isPermittedAction(this)) {
+            System.out.println("User cannot post comments");
+            return false;
+        }
         comment.AddComment(new Comment(user, date, text));
+
+        return true;
     }
 }

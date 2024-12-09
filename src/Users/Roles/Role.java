@@ -12,7 +12,7 @@ import static Users.Permission.PermissionFactory.permChar;
 public class Role {
     private Set<Permission> permissions = new HashSet<>();
 
-    public boolean validateAction(UserAction userAction) {
+    public boolean isPermittedAction(UserAction userAction) {
         for (Permission permission : permissions) {
             if (permission.isAllowed(userAction)) {
                 return true;
