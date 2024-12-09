@@ -14,6 +14,8 @@ public class Comment {
     boolean edited = false;
     Date editedDate;
 
+    boolean isDeleted = false;
+
     public Post originalPost;
     public int index;
 
@@ -51,7 +53,7 @@ public class Comment {
 
     // Actions
 
-    public void AddComment(Comment comment){
+    public void AddComment(Comment comment) {
         comment.parent = this;
         comment.indentation = this.indentation + 1;
         comment.originalPost = this.originalPost;
@@ -70,9 +72,18 @@ public class Comment {
     }
 
     public void EditComment(String newText, Date editedDate) {
+        if (this.isDeleted) {
+            System.out.println("Cannot edit deleted comment");
+            return;
+        }
         text = newText;
         this.edited = true;
         this.editedDate = editedDate;
+    }
+
+    public void DeleteComment() {
+        text = "[deleted]";
+        this.isDeleted = true;
     }
 
     // Display
@@ -159,5 +170,13 @@ public class Comment {
             result.put(unit,diff);
         }
         return result;
+    }
+
+    public User getAuthor() {
+        return author;
+    }
+
+    public String getText() {
+        return text;
     }
 }
