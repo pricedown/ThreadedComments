@@ -16,10 +16,11 @@ public class User {
         this.role = role;
     }
 
+    // TODO: the post should perform actions, but the user could construct them
     public boolean DoAction(UserAction userAction) {
         userAction.setUser(this);
 
-        if (!role.ValidateAction(userAction))
+        if (!role.validateAction(userAction))
             return false;
 
         history.add(userAction);

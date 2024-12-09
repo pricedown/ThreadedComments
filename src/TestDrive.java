@@ -1,29 +1,22 @@
-import CommentThreads.Comment;
 import CommentThreads.Post;
 import Users.*;
-import Users.Actions.EditComment;
-import Users.Actions.PostComment;
-import Users.Roles.Commenter;
-import Users.Roles.General;
-import Users.Roles.OriginalPoster;
+import Users.Actions.*;
+import Users.Roles.*;
+import Users.Permission.*;
 
-import java.rmi.server.UID;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.UUID;
-import java.util.concurrent.TimeUnit;
 
 public class TestDrive {
     public static void main(String[] args) {
+
+
         System.out.println("[Threaded Comments Test]\n");
 
         // Setup
-
         ArrayList<User> users = new ArrayList<User>();
-        User joshua = new User("Joshua", new OriginalPoster());
-        User joseph = new User("Joseph", new General());
-        User murat = new User("Murat", new General());
+        User joshua = new User("Joshua", RoleFactory.createRole("commenter"));
+        User joseph = new User("Joseph", RoleFactory.createRole("commenter"));
+        User murat = new User("Murat", RoleFactory.createRole("commenter"));
         users.add(joshua);
         users.add(joseph);
         users.add(murat);
@@ -40,6 +33,7 @@ public class TestDrive {
         Post post2 = new Post(murat, "New Post. Index ? 0");
         joshua.DoAction(new PostComment(post2, 0, "First comment. index ? 1"));
         System.out.println(post2.display());
+
 
 
         // Information about dates:
