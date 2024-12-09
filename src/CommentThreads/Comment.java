@@ -64,21 +64,26 @@ public class Comment {
         NotifySubscribers(comment);
         subscribers.add(comment.author);
 
+        // TODO: move to post probably?
         originalPost.comments.add(comment);
+        if (!originalPost.users.contains(author))
+            originalPost.users.add(author);
 
         // TODO
         // Should notify all subscribers in children as well
         // Maybe build a list of people to notify by going thru children, so no duplicated notifications
     }
 
-    public void EditComment(String newText, Date editedDate) {
+    public boolean EditComment(String newText, Date editedDate) {
         if (this.isDeleted) {
             System.out.println("Cannot edit deleted comment");
-            return;
+            return false;
         }
         text = newText;
         this.edited = true;
         this.editedDate = editedDate;
+
+        return true;
     }
 
     public void DeleteComment() {
@@ -92,7 +97,8 @@ public class Comment {
     @Override
     public String toString() {
         if (isDeleted) {
-            String output = "[deleted comment]\n";
+            String output = "";
+            output += AddIndentation() + "[ " + index + " ] " + "[deleted message]" + "\n";
             return output;
         }
 
@@ -132,7 +138,7 @@ public class Comment {
 
     public static String getTimeDiff(Date date1, Date date2) {
         Map<TimeUnit,Long> time = computeTimeDiff(date1, date2);
-        String output = " just now";
+        String output = "";
 
         if (time.get(TimeUnit.DAYS) > 0) {
             output = time.get(TimeUnit.DAYS).toString();
@@ -158,6 +164,7 @@ public class Comment {
             return output;
         }
 
+        output = "just now";
         return output;
     }
 

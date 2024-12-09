@@ -17,14 +17,15 @@ public abstract class UserAction {
     protected Comment comment;
     protected UserActionType actionType;
 
-    public UserAction(Date date, Post post, int index/*, Comment comment*/) {
+    public UserAction(User user, Date date, Post post, int index) {
+        this.user = user;
         this.date = date;
         this.post = post;
         this.comment = post.getComment(index);
     }
 
-    public UserAction(User user, Date date, Post post, int index/*, Comment comment*/) {
-        this.user = user;
+    public UserAction(Date date, Post post, int index) {
+        this.user = null;
         this.date = date;
         this.post = post;
         this.comment = post.getComment(index);
