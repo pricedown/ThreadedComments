@@ -1,11 +1,23 @@
-// Joseph Isaacs
-// Joshua Sinclair Chong
+/*
+Authors:                 Joseph Isaacs (joseph.isaacs@mymail.champlain.edu)
+                         Joshua Sinclair Chong (joshua.sinclairchong@mymail.champlain.edu)
+Class:                   CSI-340-01
+Assignment:              Final Project
+Due Date:                12/10/24
+*/
+
+/*
+        Description:
+        Demonstration of multiple patterns by modeling a social media comment thread system
+
+        Certification of Authenticity:
+        I certify that this is entirely our own work, except where I have given fully-documented references to the work of others.
+*/
 
 import CommentThreads.Post;
 import Users.*;
 import Users.Actions.CommentAction.*;
 import Users.Actions.UserAction.*;
-import Users.Permission.*;
 import Users.Roles.*;
 
 import java.util.Scanner;

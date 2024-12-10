@@ -3,10 +3,6 @@
 package Users.Actions.UserAction;
 
 import CommentThreads.Post;
-import Users.Actions.CommentAction.CommentAction;
-import Users.Actions.CommentAction.DeleteComment;
-import Users.Actions.CommentAction.EditComment;
-import Users.Actions.CommentAction.PostComment;
 import Users.Permission.Permission;
 import Users.Permission.PermissionFactory;
 import Users.User;

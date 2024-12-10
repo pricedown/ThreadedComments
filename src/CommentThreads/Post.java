@@ -5,8 +5,6 @@ package CommentThreads;
 import Users.User;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
 
 public class Post extends Comment {
     //public Map<UUID, Comment>
