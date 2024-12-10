@@ -50,8 +50,13 @@ public class TestDrive {
         Scanner scanner = new Scanner(System.in);
         String input;
         while (true) {
-            System.out.print("action (q to quit): ");
+            System.out.print("action (? for help): ");
             input = scanner.nextLine().trim();
+
+            if (input.equals("?")) {
+                System.out.println("quit: q, print: p\naction: [user | post/edit/delete | index | info]");
+                continue;
+            }
 
             if (input.equals("q"))
                 break;
@@ -80,11 +85,17 @@ public class TestDrive {
         Scanner scanner = new Scanner(System.in);
         String input;
         while (true) {
-            System.out.print("user (q to quit): ");
+            System.out.print("user (? for help): ");
             input = scanner.nextLine().trim();
+
+            if (input.equals("?")) {
+                System.out.println("quit: q, print: p\nperms: [user | grant/revoke | e/r/p/d]");
+                continue;
+            }
 
             if (input.equals("q"))
                 break;
+
 
             if (input.equals("print") || input.equals("p")) {
                 for (User user : post.users) {

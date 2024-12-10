@@ -34,6 +34,11 @@ public class PostComment extends CommentAction {
             return false;
         }
 
+        if (post == null) {
+            System.out.println("Post does not exist");
+            return false;
+        }
+
         comment.AddComment(new Comment(user, date, text));
 
         if (!post.users.contains(user))

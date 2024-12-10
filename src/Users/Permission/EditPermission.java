@@ -5,6 +5,7 @@ import Users.Actions.CommentAction.CommentAction;
 public class EditPermission implements Permission {
     public boolean isAllowed(CommentAction commentAction) {
         // editors can only edit their own comments
+        // TODO: catch error
         return (commentAction.getUser().equals(commentAction.getComment().author))
                 && (commentAction.getType() == CommentAction.CommentActionType.Edit);
     }

@@ -26,6 +26,8 @@ public class Post extends Comment {
     }
 
     public Comment getComment(int index) {
+        if (index > comments.size())
+            return null;
         return comments.get(index);
     }
 
