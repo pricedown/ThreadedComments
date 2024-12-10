@@ -31,7 +31,7 @@ public class PostComment extends CommentAction {
     }
 
     public boolean execute() {
-        if (!user.role.isPermittedAction(this)) {
+        if (!user.getRole().isPermittedAction(this)) {
             System.out.println("User cannot post comments");
             return false;
         }
@@ -43,8 +43,7 @@ public class PostComment extends CommentAction {
 
         comment.AddComment(new Comment(user, date, text));
 
-        if (!post.users.contains(user))
-            post.users.add(user);
+        post.addUser(user);
         return true;
     }
 }

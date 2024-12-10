@@ -7,15 +7,10 @@ import Users.User;
 import java.util.ArrayList;
 
 public class Post extends Comment {
-    //public Map<UUID, Comment>
-
     public final Comment parent = null;
-    // TODO: add archived stated which prevents new comments from being added
-    // the admins and original poster can do this, (or OP can delete post?)
-    // this means that the addComment() should go through this
 
-    public ArrayList<Comment> comments = new ArrayList<>();
-    public ArrayList<User> users = new ArrayList<>();
+    protected ArrayList<Comment> comments = new ArrayList<>();
+    protected ArrayList<User> users = new ArrayList<>();
 
     public Post(User user, String text) {
         super(user, text);
@@ -38,5 +33,16 @@ public class Post extends Comment {
             }
         }
         return null;
+    }
+
+    public void addUser(User user) {
+        if (!users.contains(user))
+            users.add(user);
+    }
+
+    public void printUsers() {
+        for (User user : users) {
+            System.out.println(user);
+        }
     }
 }

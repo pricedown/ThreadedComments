@@ -20,7 +20,7 @@ public class DeleteComment extends CommentAction {
 
 
     public boolean execute() {
-        if (!user.role.isPermittedAction(this)) {
+        if (!user.getRole().isPermittedAction(this)) {
             System.out.println("User cannot delete this comment");
             return false;
         }

@@ -14,7 +14,7 @@ public class RevokePermission extends UserAction {
 
     @Override
     public boolean execute() {
-        user.role.removePermission(permission);
+        user.getRole().removePermission(permission);
         return true;
     }
 }

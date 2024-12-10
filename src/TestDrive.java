@@ -31,7 +31,7 @@ public class TestDrive {
         Post post = new Post(joshua, "Hello, this is my post!");
         joseph.DoAction(new PostComment(post, 0, "Hi this is my reply!"));
 
-        post.users.add(murat);
+        post.addUser(murat);
         System.out.println("\n" + post.display());
 
         Scanner scanner = new Scanner(System.in);
@@ -105,9 +105,7 @@ public class TestDrive {
             switch (input) {
                 case "p":
                 case "print":
-                    for (User user : post.users) {
-                        System.out.println(user);
-                    }
+                    post.printUsers();
                     continue;
                 case "q":
                 case "quit":
@@ -121,9 +119,7 @@ public class TestDrive {
 
             if (action != null) {
                 if (action.execute()) {
-                    for (User user : post.users) {
-                        System.out.println(user);
-                    }
+                    post.printUsers();
                 }
             }
         }

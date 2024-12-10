@@ -14,7 +14,7 @@ public class GrantPermission extends UserAction {
 
     @Override
     public boolean execute() {
-        user.role.addPermission(permission);
+        user.getRole().addPermission(permission);
         return true;
     }
 }

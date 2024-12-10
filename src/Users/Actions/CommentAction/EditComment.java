@@ -25,7 +25,7 @@ public class EditComment extends CommentAction {
     }
 
     public boolean execute() {
-        if (!user.role.isPermittedAction(this)) {
+        if (!user.getRole().isPermittedAction(this)) {
             System.out.println("User cannot edit this comment");
             return false;
         }

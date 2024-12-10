@@ -9,9 +9,9 @@ import Users.Roles.Role;
 import java.util.ArrayList;
 
 public class User {
-    String name;
-    public Role role;
-    ArrayList<CommentAction> history = new ArrayList<>();
+    private String name;
+    private Role role;
+    private ArrayList<CommentAction> commentHistory = new ArrayList<>();
 
     public User(String name, Role role) {
         this.name = name;
@@ -21,7 +21,7 @@ public class User {
     public boolean DoAction(CommentAction commentAction) {
         commentAction.setUser(this);
         if (commentAction.execute()) {
-            history.add(commentAction);
+            commentHistory.add(commentAction);
             return true;
         }
         return false;
@@ -31,8 +31,8 @@ public class User {
         System.out.println("[System to: " + name +"]" + " Comment from " + comment.getAuthor() + " : " + comment.getText());
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public Role getRole() {
+        return this.role;
     }
 
     public String getName() {
