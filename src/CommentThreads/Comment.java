@@ -8,24 +8,21 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class Comment {
-    public User author;
-    UUID UUID;
-    Date date;
-    public String text;
+    protected final User author;
+    protected final Date date;
 
-    boolean edited = false;
-    Date editedDate;
+    protected String text;
+    protected boolean edited = false;
+    protected Date editedDate;
+    protected boolean isDeleted = false;
 
-    boolean isDeleted = false;
 
-    public Post originalPost;
-    public int index;
-
-    public Comment parent;
-    public ArrayList<Comment> children = new ArrayList<Comment>();
-    int indentation = 0;
-
-    ArrayList<User> subscribers = new ArrayList<User>();
+    protected Comment parent;
+    protected ArrayList<Comment> children = new ArrayList<Comment>();
+    protected ArrayList<User> subscribers = new ArrayList<User>();
+    protected Post originalPost;
+    protected int index;
+    protected int indentation = 0;
 
     public Comment(User user, String text){
         this.author = user;
@@ -38,12 +35,11 @@ public class Comment {
         this.author = user;
         this.date = date;
         this.text = text;
-        this.UUID = java.util.UUID.randomUUID();
         subscribers.add(user);
     }
 
     // TODO Actually give more notification information (ex: new comment vs edited comment)
-    public void NotifySubscribers(Comment comment) {
+    protected void NotifySubscribers(Comment comment) {
         for (User u : subscribers) {
             // TODO Maybe use an ID system.
             if (u.getName().equals(comment.author.getName()))
@@ -90,7 +86,6 @@ public class Comment {
 
     public void DeleteComment() {
         text = "[deleted]";
-        author = null;
         this.isDeleted = true;
     }
 
@@ -101,7 +96,6 @@ public class Comment {
         if (isDeleted) {
             String output = "";
             output += AddIndentation() + "[ " + index + " ] [deleted]\n";
-            //output += AddIndentation() + "|- DELETED\n";
             return output;
         }
 
@@ -131,19 +125,6 @@ public class Comment {
         for (int i = 0; i < indentation; i++)
             output += "|    ";
 
-        return output;
-    }
-
-    private String AddHorizontalIndentation() {
-        String output = "";
-
-        if (indentation == 0)
-            return output;
-
-        for (int i = 0; i < indentation-1; i++)
-            output += "|    ";
-
-        output += "|----";
         return output;
     }
 
@@ -201,11 +182,6 @@ public class Comment {
         return result;
     }
 
-    public User getAuthor() {
-        return author;
-    }
-
-    public String getText() {
-        return text;
-    }
+    public String getText() { return text; }
+    public User getAuthor() { return author; }
 }

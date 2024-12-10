@@ -28,7 +28,7 @@ public class User {
     }
 
     public void ReceiveNotification(Comment comment){
-        System.out.println("[System to: " + name +"]" + " Comment from " + comment.author + " : " + comment.text);
+        System.out.println("[System to: " + name +"]" + " Comment from " + comment.getAuthor() + " : " + comment.getText());
     }
 
     public void setRole(Role role) {
