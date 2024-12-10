@@ -37,7 +37,7 @@ public class TestDrive {
             } else if (input.equals("u")) {
                 userMode(post);
             } else if (input.equals("p") || input.equals("print")) {
-                System.out.println("\n" + post);
+                System.out.println("\n" + post.display());
             } else if (input.equals("q")) {
                 break;
             }
@@ -57,7 +57,7 @@ public class TestDrive {
                 break;
 
             if (input.equals("print") || input.equals("p")) {
-                System.out.println("\n" + post);
+                System.out.println("\n" + post.display());
                 continue;
             }
 
@@ -66,8 +66,10 @@ public class TestDrive {
             if (action == null) {
                 //System.out.println("Invalid action");
             } else {
-                if (action.execute())
+                if (action.execute()) {
                     System.out.println("\n" + post.display());
+                    //action.getUser().history.add(action);
+                }
                 else
                     System.out.println("Action failed");
             }

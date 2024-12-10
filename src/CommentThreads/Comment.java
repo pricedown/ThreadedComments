@@ -98,16 +98,17 @@ public class Comment {
     public String toString() {
         if (isDeleted) {
             String output = "";
-            output += AddIndentation() + "[ " + index + " ] " + "[deleted message]" + "\n";
+            output += AddIndentation() + "[ " + index + " ] [deleted]\n";
+            //output += AddIndentation() + "|- DELETED\n";
             return output;
         }
 
         String output = "";
 
-        output += AddHorizontalIndentation() + "[ " + index + " ] " + author.getName();
+        output += AddIndentation() + "[ " + index + " ] " + author.getName();
         output += " (" + getTimeDiffToday(date);
-        output += edited ? AddIndentation() + "Edited: " + getTimeDiffToday(editedDate) + ")\n" : ")\n";
-        output += AddIndentation() + "\"" + text + "\"\n";
+        output += edited ? " | edited: " + getTimeDiffToday(editedDate) + ")\n" : ")\n";
+        output += AddIndentation() + "|- \"" + text + "\"\n";
 
         return output;
     }

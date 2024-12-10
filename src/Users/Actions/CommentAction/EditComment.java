@@ -24,15 +24,11 @@ public class EditComment extends CommentAction {
 
     public boolean execute() {
         if (!user.role.isPermittedAction(this)) {
-            System.out.println("User cannot edit comments");
+            System.out.println("User cannot edit this comment");
             return false;
         }
 
-        if (!comment.EditComment(newText, date)) {
-            System.out.println("Cannot edit this comment");
-            return false;
-        }
-
+        comment.EditComment(newText, date);
         return true;
     }
 }
