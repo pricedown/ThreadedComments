@@ -6,6 +6,7 @@ import java.util.Map;
 public class PermissionFactory {
 
     private static final Map<Character, Permission> permChars = new HashMap<>();
+    // TODO: put the chars in each perm statically and just read from them, cool
     static {
         permChars.put('p', new PostPermission());
         permChars.put('e', new EditPermission());

@@ -1,6 +1,6 @@
 package Users.Roles;
 
-import Users.Actions.UserAction;
+import Users.Actions.CommentAction.CommentAction;
 
 import Users.Permission.*;
 
@@ -12,9 +12,9 @@ import static Users.Permission.PermissionFactory.permChar;
 public class Role {
     private Set<Permission> permissions = new HashSet<>();
 
-    public boolean isPermittedAction(UserAction userAction) {
+    public boolean isPermittedAction(CommentAction commentAction) {
         for (Permission permission : permissions) {
-            if (permission.isAllowed(userAction)) {
+            if (permission.isAllowed(commentAction)) {
                 return true;
             }
         }
@@ -22,11 +22,21 @@ public class Role {
     }
 
     public void addPermission(Permission permission) {
+        for (Permission perm : permissions) {
+            if (permission.equals(perm)) {
+                return;
+            }
+        }
         permissions.add(permission);
     }
 
     public void removePermission(Permission permission) {
-        permissions.remove(permission);
+        for (Permission perm : permissions) {
+            if (permission.equals(perm)) {
+                permissions.remove(perm);
+                return;
+            }
+        }
     }
 
     public String toString() {

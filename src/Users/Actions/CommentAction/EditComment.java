@@ -1,23 +1,23 @@
-package Users.Actions;
+package Users.Actions.CommentAction;
 
 import CommentThreads.Post;
 import Users.User;
 
 import java.util.Date;
 
-public class EditComment extends UserAction {
+public class EditComment extends CommentAction {
     private String newText;
 
     public EditComment(User user, Post post, int index, String newText) {
         super(user, new Date(), post, index);
-        actionType = UserActionType.Edit;
+        actionType = CommentActionType.Edit;
 
         this.newText = newText;
     }
 
     public EditComment(Post post, int index, String newText) {
         super(new Date(), post, index);
-        actionType = UserActionType.Edit;
+        actionType = CommentActionType.Edit;
 
         this.newText = newText;
     }

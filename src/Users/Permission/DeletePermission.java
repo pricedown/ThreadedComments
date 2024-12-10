@@ -1,9 +1,12 @@
 package Users.Permission;
 
-import Users.Actions.UserAction;
+import Users.Actions.CommentAction.CommentAction;
 
 public class DeletePermission implements Permission {
-    public boolean isAllowed(UserAction userAction) {
-        return userAction.getType() == UserAction.UserActionType.Delete;
+    public boolean isAllowed(CommentAction commentAction) {
+        return commentAction.getType() == CommentAction.CommentActionType.Delete;
+    }
+    public boolean equals(Object o) {
+        return o instanceof DeletePermission;
     }
 }

@@ -1,11 +1,14 @@
 package Users.Permission;
 
-import Users.Actions.UserAction;
+import Users.Actions.CommentAction.CommentAction;
 
 public class RetractPermission implements Permission {
-    public boolean isAllowed(UserAction userAction) {
+    public boolean isAllowed(CommentAction commentAction) {
         // authors can always delete their own posts
-        return userAction.getType() == UserAction.UserActionType.Delete
-                && (userAction.getUser().equals(userAction.getComment().author));
+        return commentAction.getType() == CommentAction.CommentActionType.Delete
+                && (commentAction.getUser().equals(commentAction.getComment().author));
+    }
+    public boolean equals(Object o) {
+        return o instanceof RetractPermission;
     }
 }

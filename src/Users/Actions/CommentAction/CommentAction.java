@@ -1,4 +1,4 @@
-package Users.Actions;
+package Users.Actions.CommentAction;
 
 import CommentThreads.Comment;
 import CommentThreads.Post;
@@ -6,8 +6,8 @@ import Users.User;
 
 import java.util.Date;
 
-public abstract class UserAction {
-    public enum UserActionType {
+public abstract class CommentAction {
+    public enum CommentActionType {
         Post, Delete, Edit
     }
 
@@ -15,16 +15,16 @@ public abstract class UserAction {
     protected User user;
     protected Date date;
     protected Comment comment;
-    protected UserActionType actionType;
+    protected CommentActionType actionType;
 
-    public UserAction(User user, Date date, Post post, int index) {
+    public CommentAction(User user, Date date, Post post, int index) {
         this.user = user;
         this.date = date;
         this.post = post;
         this.comment = post.getComment(index);
     }
 
-    public UserAction(Date date, Post post, int index) {
+    public CommentAction(Date date, Post post, int index) {
         this.user = null;
         this.date = date;
         this.post = post;
@@ -37,5 +37,5 @@ public abstract class UserAction {
     public void setUser(User user) {this.user = user;}
     public Date getDate() {return date;}
     public Comment getComment() {return comment;}
-    public UserActionType getType() {return actionType;}
+    public CommentActionType getType() {return actionType;}
 }

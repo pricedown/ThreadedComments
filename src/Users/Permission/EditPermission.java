@@ -1,11 +1,14 @@
 package Users.Permission;
 
-import Users.Actions.UserAction;
+import Users.Actions.CommentAction.CommentAction;
 
 public class EditPermission implements Permission {
-    public boolean isAllowed(UserAction userAction) {
+    public boolean isAllowed(CommentAction commentAction) {
         // editors can only edit their own comments
-        return (userAction.getUser().equals(userAction.getComment().author))
-                && (userAction.getType() == UserAction.UserActionType.Edit);
+        return (commentAction.getUser().equals(commentAction.getComment().author))
+                && (commentAction.getType() == CommentAction.CommentActionType.Edit);
+    }
+    public boolean equals(Object o) {
+        return o instanceof EditPermission;
     }
 }

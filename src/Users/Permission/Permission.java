@@ -1,7 +1,7 @@
 package Users.Permission;
 
-import Users.Actions.*;
+import Users.Actions.CommentAction.CommentAction;
 
 public interface Permission {
-    boolean isAllowed(UserAction userAction);
+    boolean isAllowed(CommentAction commentAction);
 }

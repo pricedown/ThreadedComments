@@ -1,13 +1,11 @@
-package Users.Actions;
+package Users.Actions.CommentAction;
 
 import CommentThreads.Post;
 import Users.User;
 
-import java.util.List;
+public class CommentActionFactory {
 
-public class UserActionFactory {
-
-    public static UserAction fromString(String actionString, Post post) {
+    public static CommentAction fromString(String actionString, Post post) {
         String[] parts = actionString.split("\\|"); // Delimiter is pipe (|)
 
         if (parts.length < 2) {
