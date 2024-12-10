@@ -4,6 +4,7 @@ import Users.Actions.CommentAction.CommentAction;
 
 import Users.Permission.*;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -47,6 +48,8 @@ public class Role {
                 result.append(permissionChar);
             }
         }
-        return result.toString();
+        char[] a = result.toString().toCharArray();
+        Arrays.sort(a);
+        return Arrays.toString(a);
     }
 }

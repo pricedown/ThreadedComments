@@ -33,8 +33,11 @@ public class PostComment extends CommentAction {
             System.out.println("User cannot post comments");
             return false;
         }
+
         comment.AddComment(new Comment(user, date, text));
 
+        if (!post.users.contains(user))
+            post.users.add(user);
         return true;
     }
 }

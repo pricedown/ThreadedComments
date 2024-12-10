@@ -104,10 +104,10 @@ public class Comment {
 
         String output = "";
 
-        output += AddIndentation() + "[ " + index + " ] " + author.getName() + "\n";
-        output += AddIndentation() + "Posted: " + getTimeDiffToday(date) + " ";
-        output += edited ? AddIndentation() + "Edited: " + getTimeDiffToday(editedDate) + "\n" : "\n";
-        output += AddIndentation() + text + "\n";
+        output += AddHorizontalIndentation() + "[ " + index + " ] " + author.getName();
+        output += " (" + getTimeDiffToday(date);
+        output += edited ? AddIndentation() + "Edited: " + getTimeDiffToday(editedDate) + ")\n" : ")\n";
+        output += AddIndentation() + "\"" + text + "\"\n";
 
         return output;
     }
@@ -126,8 +126,21 @@ public class Comment {
         String output = "";
 
         for (int i = 0; i < indentation; i++)
-            output += "\t";
+            output += "|    ";
 
+        return output;
+    }
+
+    private String AddHorizontalIndentation() {
+        String output = "";
+
+        if (indentation == 0)
+            return output;
+
+        for (int i = 0; i < indentation-1; i++)
+            output += "|    ";
+
+        output += "|----";
         return output;
     }
 
