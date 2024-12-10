@@ -11,6 +11,11 @@ public class EditPermission implements Permission {
         return (commentAction.getUser().equals(commentAction.getComment().getAuthor()))
                 && (commentAction.getType() == CommentAction.CommentActionType.Edit);
     }
+
+    public Character permChar() {
+        return 'e';
+    }
+
     public boolean equals(Object o) {
         return o instanceof EditPermission;
     }

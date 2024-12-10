@@ -10,6 +10,11 @@ public class RetractPermission implements Permission {
         return commentAction.getType() == CommentAction.CommentActionType.Delete
                 && (commentAction.getUser().equals(commentAction.getComment().getAuthor()));
     }
+
+    public Character permChar() {
+        return 'r';
+    }
+
     public boolean equals(Object o) {
         return o instanceof RetractPermission;
     }

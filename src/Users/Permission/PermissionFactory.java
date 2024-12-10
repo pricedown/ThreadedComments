@@ -2,28 +2,33 @@
 
 package Users.Permission;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class PermissionFactory {
 
-    private static final Map<Character, Permission> permChars = new HashMap<>();
-    // TODO: put the chars in each perm statically and just read from them, cool
-    static {
-        permChars.put('p', new PostPermission());
-        permChars.put('e', new EditPermission());
-        permChars.put('d', new DeletePermission());
-        permChars.put('r', new RetractPermission());
-    }
+    private static final List<Permission> permissions = new ArrayList<Permission>() {{
+        add(new EditPermission());
+        add(new PostPermission());
+        add(new DeletePermission());
+        add(new RetractPermission());
+    }};
 
     public static Permission createPermission(Character character) {
-        return permChars.get(character);
+        for (Permission p : permissions) {
+            if (p.permChar().equals(character)) {
+                return p;
+            }
+        }
+        return null;
     }
 
     public static Character permChar(Permission permission) {
-        for (Map.Entry<Character, Permission> entry : permChars.entrySet()) {
-            if (entry.getValue().getClass().equals(permission.getClass())) {
-                return entry.getKey();
+        for (Permission p : permissions) {
+            if (p.equals(permission)) {
+                return p.permChar();
             }
         }
         return null;
