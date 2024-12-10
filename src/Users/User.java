@@ -4,6 +4,7 @@ package Users;
 
 import CommentThreads.Comment;
 import Users.Actions.CommentAction.CommentAction;
+import Users.Permission.Permission;
 import Users.Roles.Role;
 
 import java.util.ArrayList;
@@ -34,6 +35,15 @@ public class User {
     public Role getRole() {
         return this.role;
     }
+    /*
+    public void addPermission(Permission perm) {
+        role.addPermission(perm);
+    }
+
+    public void removePermission(Permission perm) {
+        role.addPermission(perm);
+    }
+    */
 
     public String getName() {
         return name;

@@ -4,11 +4,12 @@ package Users.Actions.CommentAction;
 
 import CommentThreads.Comment;
 import CommentThreads.Post;
+import Users.Actions.Command;
 import Users.User;
 
 import java.util.Date;
 
-public abstract class CommentAction {
+public abstract class CommentAction implements Command {
     public enum CommentActionType {
         Post, Delete, Edit
     }
