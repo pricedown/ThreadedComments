@@ -16,7 +16,6 @@ public class Comment implements Subject {
     protected Date editedDate;
     protected boolean isDeleted = false;
 
-
     protected Comment parent;
     protected ArrayList<Comment> children = new ArrayList<Comment>();
     protected ArrayList<User> subscribers = new ArrayList<User>();
@@ -49,7 +48,7 @@ public class Comment implements Subject {
 
     // Actions
 
-    public void AddComment(Comment comment) {
+    public void addComment(Comment comment) {
         comment.parent = this;
         comment.indentation = this.indentation + 1;
         comment.originalPost = this.originalPost;
@@ -70,7 +69,7 @@ public class Comment implements Subject {
         // Maybe build a list of people to notify by going thru children, so no duplicated notifications
     }
 
-    public boolean EditComment(String newText, Date editedDate) {
+    public boolean editComment(String newText, Date editedDate) {
         if (this.isDeleted) {
             System.out.println("Cannot edit deleted comment");
             return false;
@@ -82,7 +81,7 @@ public class Comment implements Subject {
         return true;
     }
 
-    public void DeleteComment() {
+    public void deleteComment() {
         text = "[deleted]";
         this.isDeleted = true;
     }
@@ -127,11 +126,11 @@ public class Comment implements Subject {
     }
 
     // time ago
-    public static String getTimeDiffToday(Date date) {
+    private static String getTimeDiffToday(Date date) {
         return getTimeDiff(date, new Date());
     }
 
-    public static String getTimeDiff(Date date1, Date date2) {
+    private static String getTimeDiff(Date date1, Date date2) {
         Map<TimeUnit,Long> time = computeTimeDiff(date1, date2);
         String output = "";
 
@@ -164,7 +163,7 @@ public class Comment implements Subject {
     }
 
     // From: https://ideone.com/5dXeu6
-    public static Map<TimeUnit,Long> computeTimeDiff(Date date1, Date date2) {
+    private static Map<TimeUnit,Long> computeTimeDiff(Date date1, Date date2) {
         long diffInMillies = date2.getTime() - date1.getTime();
         List<TimeUnit> units = new ArrayList<TimeUnit>(EnumSet.allOf(TimeUnit.class));
         Collections.reverse(units);

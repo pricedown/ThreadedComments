@@ -24,7 +24,7 @@ public class DeleteComment extends CommentAction {
             System.out.println("User cannot delete this comment");
             return false;
         }
-        comment.DeleteComment();
+        comment.deleteComment();
 
         return true;
     }

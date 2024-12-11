@@ -41,7 +41,7 @@ public class PostComment extends CommentAction {
             return false;
         }
 
-        comment.AddComment(new Comment(user, date, text));
+        comment.addComment(new Comment(user, date, text));
 
         post.addUser(user);
         return true;

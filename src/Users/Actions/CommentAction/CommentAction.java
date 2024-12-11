@@ -24,14 +24,14 @@ public abstract class CommentAction implements Command {
         this.user = user;
         this.date = date;
         this.post = post;
-        this.comment = post.getComment(index);
+        this.comment = post.findComment(index);
     }
 
     public CommentAction(Date date, Post post, int index) {
         this.user = null;
         this.date = date;
         this.post = post;
-        this.comment = post.getComment(index);
+        this.comment = post.findComment(index);
     }
 
     public abstract boolean execute();

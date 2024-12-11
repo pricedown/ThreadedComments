@@ -30,7 +30,7 @@ public class EditComment extends CommentAction {
             return false;
         }
 
-        comment.EditComment(newText, date);
+        comment.editComment(newText, date);
         return true;
     }
 }

@@ -36,15 +36,6 @@ public class User implements Observer {
     public Role getRole() {
         return this.role;
     }
-    /*
-    public void addPermission(Permission perm) {
-        role.addPermission(perm);
-    }
-
-    public void removePermission(Permission perm) {
-        role.addPermission(perm);
-    }
-    */
 
     public String getName() {
         return name;
@@ -52,7 +43,6 @@ public class User implements Observer {
 
     @Override
     public String toString() {
-        String output = "[" + name + ", " + role + "]";
-        return output;
+        return "[" + name + ", " + role + "]";
     }
 }

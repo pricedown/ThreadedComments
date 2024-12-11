@@ -20,12 +20,11 @@ public class Post extends Comment {
         users.add(author);
     }
 
-    public Comment getComment(int index) {
+    public Comment findComment(int index) {
         if (index > comments.size())
             return null;
         return comments.get(index);
     }
-
     public User findUser(String username) {
         for (User u : users) {
             if (u.getName().equalsIgnoreCase(username)) {
@@ -34,7 +33,6 @@ public class Post extends Comment {
         }
         return null;
     }
-
     public void addUser(User user) {
         if (!users.contains(user))
             users.add(user);
