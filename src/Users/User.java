@@ -5,7 +5,6 @@ package Users;
 import CommentThreads.Comment;
 import CommentThreads.Observer;
 import Users.Actions.CommentAction.CommentAction;
-import Users.Permission.Permission;
 import Users.Roles.Role;
 
 import java.util.ArrayList;
@@ -20,7 +19,7 @@ public class User implements Observer {
         this.role = role;
     }
 
-    public boolean DoAction(CommentAction commentAction) {
+    public boolean doAction(CommentAction commentAction) {
         commentAction.setUser(this);
         if (commentAction.execute()) {
             commentHistory.add(commentAction);

@@ -29,7 +29,7 @@ public class TestDrive {
         User murat = new User("Murat", RoleFactory.createRole("commenter"));
 
         Post post = new Post(joshua, "Hello, this is my post!");
-        joseph.DoAction(new PostComment(post, 0, "Hi this is my reply!"));
+        joseph.doAction(new PostComment(post, 0, "Hi this is my reply!"));
 
         post.addUser(murat);
         System.out.println("\n" + post.display());
