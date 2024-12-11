@@ -7,7 +7,7 @@ import Users.User;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-public class Comment {
+public class Comment implements Subject {
     protected final User author;
     protected final Date date;
 
@@ -38,14 +38,12 @@ public class Comment {
         subscribers.add(user);
     }
 
-    // TODO Actually give more notification information (ex: new comment vs edited comment)
-    protected void NotifySubscribers(Comment comment) {
+    public void notifySubscribers(Comment comment) {
         for (User u : subscribers) {
-            // TODO Maybe use an ID system.
             if (u.getName().equals(comment.author.getName()))
                 continue;
 
-            u.ReceiveNotification(comment);
+            u.notify(comment);
         }
     }
 
@@ -59,7 +57,7 @@ public class Comment {
 
         children.add(comment);
 
-        NotifySubscribers(comment);
+        notifySubscribers(comment);
         subscribers.add(comment.author);
 
         // TODO: move to post probably?

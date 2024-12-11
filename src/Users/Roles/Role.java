@@ -10,8 +10,6 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-import static Users.Permission.PermissionFactory.permChar;
-
 public class Role {
     private Set<Permission> permissions = new HashSet<>();
 
@@ -45,7 +43,7 @@ public class Role {
     public String toString() {
         StringBuilder result = new StringBuilder();
         for (Permission permission : permissions) {
-            Character permissionChar = permChar(permission);
+            Character permissionChar = permission.permChar();
             if (permissionChar != null) {
                 result.append(permissionChar);
             }

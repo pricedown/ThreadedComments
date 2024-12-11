@@ -3,13 +3,14 @@
 package Users;
 
 import CommentThreads.Comment;
+import CommentThreads.Observer;
 import Users.Actions.CommentAction.CommentAction;
 import Users.Permission.Permission;
 import Users.Roles.Role;
 
 import java.util.ArrayList;
 
-public class User {
+public class User implements Observer {
     private String name;
     private Role role;
     private ArrayList<CommentAction> commentHistory = new ArrayList<>();
@@ -28,7 +29,7 @@ public class User {
         return false;
     }
 
-    public void ReceiveNotification(Comment comment){
+    public void notify(Comment comment){
         System.out.println("[System to: " + name +"]" + " Comment from " + comment.getAuthor() + " : " + comment.getText());
     }
 

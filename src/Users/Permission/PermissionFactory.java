@@ -24,15 +24,5 @@ public class PermissionFactory {
         }
         return null;
     }
-
-    public static Character permChar(Permission permission) {
-        for (Permission p : permissions) {
-            if (p.equals(permission)) {
-                return p.permChar();
-            }
-        }
-        return null;
-    }
-
 }
 
